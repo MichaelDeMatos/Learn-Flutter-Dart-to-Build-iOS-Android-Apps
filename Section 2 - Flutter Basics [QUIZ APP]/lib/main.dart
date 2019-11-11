@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'pergunta.dart';
+import 'package:flutter_basics/pergunta.dart';
+import 'package:flutter_basics/resposta.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,8 +22,20 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var perguntas = ['Qual sua cor favorita?', 'Qual seu animal favorito?'];
+    // var perguntas = ['Qual sua cor favorita?', 'Qual seu animal favorito?'];
+    var pergunta1 = new Map();
+    pergunta1['textoPergunta'] = 'Qual sua cor favorita?';
+    pergunta1['respostas'] = ['Azul', 'Vermelho', 'Amarelo'];
+
+    var pergunta2 = new Map();
+    pergunta2['textoPergunta'] = 'Qual seu animal favorito?';
+    pergunta2['respostas'] = ['Gato', 'Cachorro', 'Papagaio'];
+
+    var perguntas = [pergunta1, pergunta2];
+
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData.dark(),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Quizz'),
@@ -31,18 +43,18 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Pergunta(perguntas[_indexPergunta]),
-            RaisedButton(
-              child: Text('Resposta 1'),
-              onPressed: _respondePergunta,
+            Pergunta(perguntas[_indexPergunta]['textoPergunta']),
+            Resposta(
+              'Resposta 1',
+              onPressFunc: _respondePergunta,
             ),
-            RaisedButton(
-              child: Text('Resposta 2'),
-              onPressed: () => print('Resposta 2'),
+            Resposta(
+              'Resposta 2',
+              onPressFunc: () => print('Resposta 2'),
             ),
-            RaisedButton(
-              child: Text('Resposta 3'),
-              onPressed: _respondePergunta,
+            Resposta(
+              'Resposta 3',
+              onPressFunc: _respondePergunta,
             ),
           ],
         ),
