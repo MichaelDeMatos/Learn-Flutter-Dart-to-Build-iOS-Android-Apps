@@ -23,11 +23,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     // var perguntas = ['Qual sua cor favorita?', 'Qual seu animal favorito?'];
-    var pergunta1 = new Map();
+    var pergunta1 = new Map<String, Object>();
     pergunta1['textoPergunta'] = 'Qual sua cor favorita?';
     pergunta1['respostas'] = ['Azul', 'Vermelho', 'Amarelo'];
 
-    var pergunta2 = new Map();
+    var pergunta2 = new Map<String, Object>();
     pergunta2['textoPergunta'] = 'Qual seu animal favorito?';
     pergunta2['respostas'] = ['Gato', 'Cachorro', 'Papagaio'];
 
