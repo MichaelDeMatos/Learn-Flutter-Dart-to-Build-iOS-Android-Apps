@@ -44,18 +44,18 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Pergunta(perguntas[_indexPergunta]['textoPergunta']),
-            Resposta(
-              'Resposta 1',
-              onPressFunc: _respondePergunta,
-            ),
-            Resposta(
-              'Resposta 2',
-              onPressFunc: () => print('Resposta 2'),
-            ),
-            Resposta(
-              'Resposta 3',
-              onPressFunc: _respondePergunta,
-            ),
+            // ...(perguntas[_indexPergunta]['respostas'] as List<String>)
+            //     .map((resposta) {
+            //       return Resposta(
+            //       resposta,
+            //       onPressFunc: _respondePergunta,
+            //     );
+            // }).toList(),
+            for (var resp in perguntas[_indexPergunta]['respostas'])
+              Resposta(
+                resp,
+                onPressFunc: _respondePergunta,
+              )
           ],
         ),
       ),
